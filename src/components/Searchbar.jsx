@@ -55,12 +55,24 @@ const Searchbar = () => {
     }
   };
   const handleSubmit = () => {
-    postData();
+    if (!search) {
+      toast.error("please Enter your long url");
+    } else {
+      postData();
+    }
+  };
+
+  const handleKey = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
   };
 
   return (
-    <div className="w-[40rem] rounded-xl me-auto ms-auto mt-10 px-4 py-4 bg-gray-100">
-      <form className=" max-w-3xl mt-20 mx-auto ">
+    <div className="w-[40rem] rounded-xl me-auto ms-auto px-4 py-4 bg-gray-100">
+      <form
+        className=" max-w-3xl mx-auto "
+        onSubmit={(e) => e.preventDefault()}>
         <h1 className="text-[34px] mb-10">
           Transform Long URLs into Short URLs
         </h1>
@@ -110,6 +122,7 @@ const Searchbar = () => {
               placeholder="Enter long link here"
               required=""
               value={search}
+              onKeyDown={handleKey}
               onChange={(e) => setSearch(e.target.value)}
             />
           </>
@@ -280,7 +293,7 @@ const Searchbar = () => {
       ) : (
         <button
           onClick={handleSubmit}
-          className=" mt-5 w-full focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl p-4 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+          className=" mt-5 w-full focus:outline-none text-white bg-[linear-gradient(to_top,#48c6ef_0%,#6f86d6_100%)] focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl p-4 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
           Shorten URL
         </button>
       )}
