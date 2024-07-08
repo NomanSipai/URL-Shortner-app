@@ -61,6 +61,9 @@ const Searchbar = () => {
   return (
     <div className="w-[40rem] me-auto ms-auto mt-20 px-4 py-4 bg-gray-100">
       <form className=" max-w-3xl mt-20 mx-auto ">
+        <h1 className="text-[34px] mb-10">
+          Transform Long URLs into Short URLs
+        </h1>
         {shortUrl ? (
           <>
             <div className="flex items-center mb-2">
@@ -160,7 +163,7 @@ const Searchbar = () => {
                       </svg>
                     </button>
                   </Link>
-                  <div className="flex items-center">
+                  <div className="flex relative items-center">
                     <button
                       onClick={() => setToggleQrCode(!toggleQrCode)}
                       className="flex relative px-2 py-2 text-lg items-center text-white  bg-teal-400 hover:bg-teal-500 font-medium rounded-md text-center">
@@ -180,7 +183,7 @@ const Searchbar = () => {
                       QR
                     </button>
                     {toggleQrCode && (
-                      <div className=" mt-72 -ms-14 absolute  bg-slate-200 px-4 py-2">
+                      <div className=" mt-72 -ms-14 bottom-full left-0 absolute  bg-slate-200 px-4 py-2">
                         <img src={qrCode} alt="qr" />
                         <div className=" mt-2">
                           <button

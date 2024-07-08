@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Searchbar from "./components/Searchbar";
 import { Toaster } from "react-hot-toast";
+import "./App.css";
 
 function App() {
   return (
