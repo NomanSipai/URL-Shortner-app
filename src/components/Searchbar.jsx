@@ -94,7 +94,7 @@ const Searchbar = () => {
             <input
               type="search"
               id="default-search"
-              className="block w-full p-5 ps-10 text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+              className="block w-full p-5 ps-6 text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
               placeholder="Enter long link here"
               readOnly
               value={search}
@@ -156,7 +156,7 @@ const Searchbar = () => {
                 <input
                   type="search"
                   id="default-search"
-                  className="block w-full p-5 ps-10 text-lg text-gray-900 border  rounded-lg bg-gray-50 outline-none"
+                  className="block w-full p-5 ps-6 text-lg text-gray-900 border  rounded-lg bg-gray-50 outline-none"
                   placeholder="shorten a link here..."
                   readOnly
                   value={shortUrl}
