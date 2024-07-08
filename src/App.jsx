@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="container px-4 mx-auto">
+    <div className="container flex items-center justify-center min-h-screen mx-auto px-4">
       <Toaster position="top-center" reverseOrder={true} />
       <Routes>
         <Route path="/" element={<Searchbar />} />

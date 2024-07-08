@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import toast from "react-hot-toast";
@@ -67,6 +67,14 @@ const Searchbar = () => {
       handleSubmit();
     }
   };
+  useEffect(() => {
+    if (toggleQrCode) {
+      setToggleShare(false);
+    }
+    if (toggleShare) {
+      setToggleQrCode(false);
+    }
+  }, [toggleQrCode, toggleShare]);
 
   return (
     <div className="w-[43rem] rounded-xl me-auto ms-auto p-10 bg-gray-100">
