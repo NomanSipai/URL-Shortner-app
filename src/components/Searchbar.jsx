@@ -59,7 +59,7 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="w-[40rem] me-auto ms-auto mt-20 px-4 py-4 bg-gray-100">
+    <div className="w-[40rem] me-auto ms-auto mt-10 px-4 py-4 bg-gray-100">
       <form className=" max-w-3xl mt-20 mx-auto ">
         <h1 className="text-[34px] mb-10">
           Transform Long URLs into Short URLs
