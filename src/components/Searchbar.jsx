@@ -69,9 +69,9 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="w-[40rem] rounded-xl me-auto ms-auto px-4 py-4 bg-gray-100">
+    <div className="w-[43rem] rounded-xl me-auto ms-auto p-10 bg-gray-100">
       <form className="max-w-3xl mx-auto " onSubmit={(e) => e.preventDefault()}>
-        <h1 className="text-[34px] my-5 font-bold">
+        <h1 className="text-[34px] w-full mb-5 font-bold">
           Transform Long URLs into Short URLs
         </h1>
         {shortUrl ? (
@@ -291,7 +291,7 @@ const Searchbar = () => {
       {shortUrl ? (
         <button
           onClick={() => setShortUrl("") || setSearch("")}
-          className=" w-full focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl p-4 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+          className=" w-full focus:outline-none text-white bg-[linear-gradient(to_top,#48c6ef_0%,#6f86d6_100%)]  focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl p-4 me-2 mb-2">
           Shorter Another
         </button>
       ) : (
