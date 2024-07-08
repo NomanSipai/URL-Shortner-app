@@ -70,17 +70,17 @@ const Searchbar = () => {
 
   return (
     <div className="w-[40rem] rounded-xl me-auto ms-auto px-4 py-4 bg-gray-100">
-      <form
-        className=" max-w-3xl mx-auto "
-        onSubmit={(e) => e.preventDefault()}>
-        <h1 className="text-[34px] mb-10">
+      <form className="max-w-3xl mx-auto " onSubmit={(e) => e.preventDefault()}>
+        <h1 className="text-[34px] my-5 font-bold">
           Transform Long URLs into Short URLs
         </h1>
         {shortUrl ? (
           <>
             <div className="flex items-center mb-2">
               <img src="https://tinyurl.com/images/home/url.svg" alt="" />
-              <h5 className="text-xl text-gray-500 ms-2">Your long URL</h5>
+              <h5 className="text-xl text-gray-500 ms-2 font-medium">
+                Your long URL
+              </h5>
             </div>
 
             <input
@@ -113,12 +113,14 @@ const Searchbar = () => {
                   fill="green"
                 />
               </svg>
-              <h5 className="text-xl text-gray-500 ms-2">Shorten a long URL</h5>
+              <h5 className="text-xl text-gray-500 ms-2 font-medium">
+                Shorten a long URL
+              </h5>
             </div>
             <input
               type="search"
               id="default-search"
-              className="block w-full p-5 ps-10 text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full p-5 ps-6 text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter long link here"
               required=""
               value={search}
@@ -139,7 +141,9 @@ const Searchbar = () => {
                     src="https://tinyurl.com/images/home/magic-wand.svg"
                     alt=""
                   />
-                  <h5 className="text-xl text-gray-500 ms-2">TinyURL</h5>
+                  <h5 className="text-xl text-gray-500 ms-2 font-medium">
+                    Tiny URL
+                  </h5>
                 </div>
                 <input
                   type="search"
@@ -293,7 +297,7 @@ const Searchbar = () => {
       ) : (
         <button
           onClick={handleSubmit}
-          className=" mt-5 w-full focus:outline-none text-white bg-[linear-gradient(to_top,#48c6ef_0%,#6f86d6_100%)] focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl p-4 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+          className=" mt-5 w-full focus:outline-none text-white bg-[linear-gradient(to_top,#48c6ef_0%,#6f86d6_100%)] focus:ring-4 focus:ring-gray-300 font-bold rounded-lg text-xl p-4 me-2 mb-2 ">
           Shorten URL
         </button>
       )}
