@@ -21,6 +21,7 @@ import {
   WhatsappIcon,
   LinkedinShareButton,
 } from "react-share";
+import spinner from "/spinner.gif";
 
 const Searchbar = () => {
   const [search, setSearch] = useState("");
@@ -29,9 +30,13 @@ const Searchbar = () => {
   const [qrCode, setQrCode] = useState("");
   const [toggleQrCode, setToggleQrCode] = useState(false);
   const [toggleShare, setToggleShare] = useState(false);
+  const [toggleSpinner, setToggleSpinner] = useState(false);
+  const [buttonDisable, setButtonDisable] = useState(false);
 
   const postData = async () => {
     setLoader(false);
+    setToggleSpinner(true);
+    setButtonDisable(true);
     const data = new FormData();
     data.append("url", search);
     const options = {
@@ -49,9 +54,11 @@ const Searchbar = () => {
       setShortUrl(response.data.result_url);
       setLoader(true);
       QRCode.toDataURL(response.data.result_url).then((val) => setQrCode(val));
+      setToggleSpinner(false);
     } catch (error) {
       console.error(error);
       setLoader(true);
+      setToggleSpinner(false);
     }
   };
   const handleSubmit = () => {
@@ -78,6 +85,18 @@ const Searchbar = () => {
 
   return (
     <div className="w-[43rem] rounded-xl me-auto ms-auto p-10 bg-gray-100">
+      {toggleQrCode && (
+        <div
+          className=" inset-0 fixed bg-black bg-opacity-30 transition-opacity"
+          onClick={() => setToggleQrCode(false)}
+        />
+      )}
+      {toggleShare && (
+        <div
+          className=" inset-0 fixed bg-black bg-opacity-30 transition-opacity"
+          onClick={() => setToggleShare(false)}
+        />
+      )}
       <form className="max-w-3xl mx-auto " onSubmit={(e) => e.preventDefault()}>
         <h1 className="text-[34px] w-full mb-5 font-bold">
           Transform Long URLs into Short URLs
@@ -208,7 +227,7 @@ const Searchbar = () => {
                       QR
                     </button>
                     {toggleQrCode && (
-                      <div className=" mt-72 -ms-14 bottom-full left-0 absolute  bg-slate-200 px-4 py-2">
+                      <div className=" mt-72 -ms-14 bottom-full left-0 absolute  bg-white rounded-lg px-4 py-2">
                         <img src={qrCode} alt="qr" />
                         <div className=" mt-2">
                           <button
@@ -239,7 +258,7 @@ const Searchbar = () => {
                       Share
                     </button>
                     {toggleShare && (
-                      <div className="-ms-7 grid grid-cols-2 bg-slate-200 px-4 py-4 absolute mt-[18rem]">
+                      <div className="-ms-7 grid grid-cols-2 bg-white rounded-lg px-4 py-4 absolute mt-[16rem]">
                         <FacebookShareButton url={shortUrl} className="m-2">
                           <FacebookIcon round={true} size={40}></FacebookIcon>
                         </FacebookShareButton>
@@ -305,8 +324,13 @@ const Searchbar = () => {
       ) : (
         <button
           onClick={handleSubmit}
+          disabled={buttonDisable}
           className=" mt-5 w-full focus:outline-none text-white bg-[linear-gradient(to_top,#48c6ef_0%,#6f86d6_100%)] focus:ring-4 focus:ring-gray-300 font-bold rounded-lg text-xl p-4 me-2 mb-2 ">
-          Shorten URL
+          {toggleSpinner ? (
+            <img className="mx-auto" src={spinner} width={30} alt="" />
+          ) : (
+            "Shorten URL"
+          )}
         </button>
       )}
     </div>
